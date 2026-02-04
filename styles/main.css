@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden; /* for floating hearts */
+}
+
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  max-width: 420px;
+  width: 100%;
+  position: relative;
+}
+
+.couple-img {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px; /* 8px gap between buttons */
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  position: relative;
+  z-index: 1;
+}
+
+#yesBtn {
+  background: #fff;
+  color: #ff4d6d;
+}
+
+#noBtn {
+  background: #ff4d6d;
+  color: #fff;
+  position: fixed; /* free to move around screen */
+}
+
+.hidden {
+  display: none;
+}
+
+#result {
+  margin-top: 2rem;
+}
+
+#resultGif {
+  width: 200px;
+  margin-bottom: 1rem;
+}
+
+.thanks-img {
+  width: 150px;
+}
+
+/* 💖 Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 24px;
+  animation: floatUp 4s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+.love-message {
+  position: absolute; /* inside container */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 90%;
+  max-width: 360px;
+  background: rgba(255,255,255,0.95);
+  color: #ff4d6d;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255,77,109,0.6);
+  z-index: 100; /* make sure it's above everything */
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+}
+
+.love-message.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.love-message .love-img {
+  width: 100px;
+  margin-bottom: 12px;
+}
