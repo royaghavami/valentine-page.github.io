@@ -60,14 +60,23 @@ container.addEventListener('mousemove', (e) => {
 function startHearts() {
   setInterval(() => {
     const heart = document.createElement('div')
-    heart.className = 'heart'
-    heart.textContent = '💖'
-    heart.style.left = Math.random() * 100 + 'vw'
-    heart.style.fontSize = Math.random() * 20 + 20 + 'px'
+    heart.classList.add('heart')
+
+    // random horizontal position
+    heart.style.left = Math.random() * (window.innerWidth - 100) + 'px'
+
+    // random scale for cute variation
+    const scale = Math.random() * 0.6 + 0.4
+    heart.style.transform = `scale(${scale})`
+
     document.body.appendChild(heart)
-    setTimeout(() => heart.remove(), 4000)
+
+    setTimeout(() => {
+      heart.remove()
+    }, 4000)
   }, 250)
 }
+
 
 
 yesBtn.addEventListener('click', () => {
